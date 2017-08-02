@@ -1,0 +1,11 @@
+{
+  "name": "king/controller",
+  "version": "1.0.0",
+  "description": "使用es6 Generator 將 異步代碼 轉爲同步",
+  "main": "./lib/async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zuiwuchang",
+  "license": "BSD-2-Clause"
+}
