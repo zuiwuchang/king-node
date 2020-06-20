@@ -1,0 +1,25 @@
+{
+  "name": "king-node",
+  "version": "1.0.6",
+  "description": "some general tool",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "qunit src/index_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/king011/king-node.git"
+  },
+  "author": "king [zuiwuchang@gmail.com,https://book.king011.com]",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/king011/king-node/issues"
+  },
+  "homepage": "https://github.com/king011/king-node#README",
+  "devDependencies": {
+    "qunit": "^2.10.0"
+  },
+  "dependencies": {
+    "@types/qunit": "^2.9.1"
+  }
+}
