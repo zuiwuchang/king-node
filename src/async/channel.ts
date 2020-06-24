@@ -32,6 +32,9 @@ export interface IReadChannel<T> {
     read(): Promise<IChannelResult<T>>
 }
 
+/**
+ * 用於傳輸數據的 讀寫 通道
+ */
 export class Channel<T> implements IWriteChannel<T>, IReadChannel<T>{
     private signalWrite_ = new Subject<boolean>()
     private signalRead_ = new Subject<boolean>()
@@ -50,6 +53,9 @@ export class Channel<T> implements IWriteChannel<T>, IReadChannel<T>{
         }
         this.buffer_ = new Ring<T>(capacity)
     }
+    /**
+     * 關閉 channel 
+     */
     close(): boolean {
         if (this.closed_) {
             return false
@@ -67,6 +73,10 @@ export class Channel<T> implements IWriteChannel<T>, IReadChannel<T>{
         buffer.pushBack(data)
         return true
     }
+    /**
+     * 向 channel 寫入 數據 如果channel 已經關閉 則 拋出異常
+     * @param data 
+     */
     write(data: T): Promise<undefined> {
         return new Promise<undefined>((resolve, reject) => {
             if (this.closed_) {
@@ -111,6 +121,9 @@ export class Channel<T> implements IWriteChannel<T>, IReadChannel<T>{
             data: buffer.popFront(),
         }
     }
+    /**
+     * 從 channel 讀出數據 如果 channel 已經關閉 則 result.ok 將被設置爲 false
+     */
     read(): Promise<IChannelResult<T>> {
         return new Promise<IChannelResult<T>>((resolve, reject) => {
             const result = this._read()
