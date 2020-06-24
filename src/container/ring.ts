@@ -1,4 +1,5 @@
-import { IContainer, Container } from "./container"
+import { IContainer } from './interface'
+import { Container } from "./container"
 
 /**
  * 一個固定大小的 環
@@ -65,6 +66,34 @@ export class Ring<T> extends Container<T> implements IContainer<T> {
                     }
                 }
                 let index = start + i++
+                if (index >= capacity) {
+                    index -= capacity
+                }
+                return {
+                    done: false,
+                    value: datas[index],
+                }
+            }
+        }
+    }
+    /**
+     * 返回逆向迭代器
+     */
+    get reverseIterator(): Iterator<T> {
+        const datas = this.datas_
+        const count = this.length_
+        const capacity = this.capacity_
+        const start = this.start_
+        let i = count - 1
+        return {
+            next(): IteratorResult<T> {
+                if (i < 0) {
+                    return {
+                        done: true,
+                        value: undefined,
+                    }
+                }
+                let index = start + i--
                 if (index >= capacity) {
                     index -= capacity
                 }
@@ -181,5 +210,23 @@ export class Ring<T> extends Container<T> implements IContainer<T> {
             this.start_ -= capacity
         }
         return result
+    }
+    /**
+     * 返回指定索引元素
+     * @param index 
+     */
+    at(index: number): T {
+        const count = this.length_
+        if (index < 0 || index >= count) {
+            throw Error('index out of range')
+        }
+
+        const capacity = this.capacity_
+        index += this.start_
+        if (index >= capacity) {
+            index -= capacity
+        }
+
+        return this.datas_[index]
     }
 }

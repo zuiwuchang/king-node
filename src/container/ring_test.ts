@@ -10,6 +10,15 @@ function assertArray(assert: Assert, c: Ring<number>, start: number, count: numb
     const l = c.map<number>((v) => v).join(',')
     const r = arrayString(start, count)
     assert.ok(l == r, `map not equal [${l}] [${r}]`)
+
+    const reverse = c.reverseMap<number>((v) => v).reverse().join(',')
+    assert.ok(reverse == r, `reverse not equal [${l}] [${r}]`)
+
+    const at = new Array<number>(c.length)
+    for (let i = 0; i < c.length; i++) {
+        at[i] = c.at(i)
+    }
+    assert.ok(at.join(',') == r, `at not equal [${l}] [${r}]`)
 }
 QUnit.test(`container/ring Ring`, (assert) => {
     const c = new Ring<number>(10)
