@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/king011/king-node.git"
+    "url": "git+ssh://git@github.com/zuiwuchang/king-node"
   },
   "author": "king [zuiwuchang@gmail.com,https://book.king011.com]",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/king011/king-node/issues"
+    "url": "https://github.com/zuiwuchang/king-node/issues"
   },
-  "homepage": "https://github.com/king011/king-node#README",
+  "homepage": "https://github.com/zuiwuchang/king-node#README",
   "devDependencies": {
     "qunit": "^2.10.0"
   },
