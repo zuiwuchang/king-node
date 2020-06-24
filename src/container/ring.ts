@@ -23,19 +23,33 @@ export class Ring<T> extends Container<T> implements IContainer<T> {
     private start_: number
     private length_: number
     private capacity_: number
-
+    /**
+     * 返回容器中的 元素數量
+     */
     get length(): number {
         return this.length_
     }
+    /**
+     * 返回容器 可容納元素數量
+     */
     get capacity(): number {
         return this.capacity_
     }
+    /**
+     * 返回容器是否爲空
+     */
     get isEmpty(): boolean {
         return this.length_ == 0
     }
+    /**
+     * 返回容器是否不爲空
+     */
     get isNotEmpty(): boolean {
         return this.length_ != 0
     }
+    /**
+     * 返回迭代器
+     */
     get iterator(): Iterator<T> {
         const datas = this.datas_
         const count = this.length_
@@ -61,6 +75,10 @@ export class Ring<T> extends Container<T> implements IContainer<T> {
             }
         }
     }
+    /**
+     * 將當前容器 和 指定容器交互
+     * @param other 
+     */
     swap(other: Ring<T>): void {
         [this.datas_, other.datas_] = [other.datas_, this.datas_];
         [this.start_, other.start_] = [other.start_, this.start_];
@@ -68,6 +86,9 @@ export class Ring<T> extends Container<T> implements IContainer<T> {
         [this.capacity_, other.capacity_] = [other.capacity_, this.capacity_];
 
     }
+    /**
+     * 清空容器內的 所有元素
+     */
     clear(callback?: (element: T) => void): void {
         if (this.length_) {
             const datas = this.datas_

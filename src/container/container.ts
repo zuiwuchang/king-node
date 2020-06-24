@@ -7,7 +7,13 @@ export interface IContainer<T> extends Iterable<T> {
      * 返回容器 可容納元素數量
      */
     readonly capacity: number
+    /**
+     * 返回容器是否爲空
+     */
     readonly isEmpty: boolean
+    /**
+     * 返回容器是否不爲空
+     */
     readonly isNotEmpty: boolean
 
     /**
@@ -45,6 +51,10 @@ export class Container<T> implements Iterable<T>{
     [Symbol.iterator](): Iterator<T> {
         return this.iterator
     }
+    /**
+     * 遍歷元素
+     * @param callback 
+     */
     forEach(callback: (element: T) => void): void {
         const iterator = this.iterator
         while (true) {
@@ -55,6 +65,10 @@ export class Container<T> implements Iterable<T>{
             callback(element.value)
         }
     }
+    /**
+     * 轉化數組
+     * @param callback 
+     */
     map<U>(callback: (element: T) => U): Array<U> {
         const result = new Array<U>()
         this.forEach((element) => {
