@@ -5,5 +5,6 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./container/container"));
 __export(require("./container/ring"));
+__export(require("./container/list"));
 __export(require("./async/completer"));
 __export(require("./async/channel"));
