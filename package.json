@@ -1,7 +1,7 @@
 {
   "name": "king-node",
-  "version": "1.0.10",
-  "description": "some general tool",
+  "version": "1.0.11",
+  "description": "some js tools",
   "main": "src/index.js",
   "scripts": {
     "test": "qunit src/index_test.js"

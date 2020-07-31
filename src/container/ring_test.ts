@@ -66,4 +66,13 @@ QUnit.test(`container/ring Ring`, (assert) => {
     }
     assert.ok(c.isEmpty, `isEmpty`)
     assert.notOk(c.isNotEmpty, `isNotEmpty`)
+
+    for (let i = 0; i < 11; i++) {
+        c.pushBack(i)
+    }
+    let i = 1
+    c.clear((v) => {
+        assert.ok(v == i, "not equal")
+        i++
+    })
 })

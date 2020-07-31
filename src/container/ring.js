@@ -29,6 +29,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Ring = void 0;
 var container_1 = require("./container");
 /**
  * 一個固定大小的 環
@@ -60,7 +61,7 @@ var Ring = /** @class */ (function (_super) {
         get: function () {
             return this.length_;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(Ring.prototype, "capacity", {
@@ -70,7 +71,7 @@ var Ring = /** @class */ (function (_super) {
         get: function () {
             return this.capacity_;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(Ring.prototype, "isEmpty", {
@@ -80,7 +81,7 @@ var Ring = /** @class */ (function (_super) {
         get: function () {
             return this.length_ == 0;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(Ring.prototype, "isNotEmpty", {
@@ -90,7 +91,7 @@ var Ring = /** @class */ (function (_super) {
         get: function () {
             return this.length_ != 0;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(Ring.prototype, "iterator", {
@@ -122,7 +123,7 @@ var Ring = /** @class */ (function (_super) {
                 }
             };
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(Ring.prototype, "reverseIterator", {
@@ -154,7 +155,7 @@ var Ring = /** @class */ (function (_super) {
                 }
             };
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     /**
@@ -178,6 +179,7 @@ var Ring = /** @class */ (function (_super) {
             var length_1 = this.length_;
             var index = void 0;
             for (var i = 0; i < length_1; i++) {
+                index = this.start_ + i;
                 if (index == capacity) {
                     index -= capacity;
                 }

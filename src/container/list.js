@@ -29,6 +29,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.List = exports.ListElement = void 0;
 var container_1 = require("./container");
 var ListElement = /** @class */ (function () {
     function ListElement() {
@@ -57,7 +58,7 @@ var List = /** @class */ (function (_super) {
         get: function () {
             return this.length_;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(List.prototype, "capacity", {
@@ -67,7 +68,7 @@ var List = /** @class */ (function (_super) {
         get: function () {
             return this.length_;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(List.prototype, "isEmpty", {
@@ -77,7 +78,7 @@ var List = /** @class */ (function (_super) {
         get: function () {
             return this.length_ == 0;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(List.prototype, "isNotEmpty", {
@@ -87,7 +88,7 @@ var List = /** @class */ (function (_super) {
         get: function () {
             return this.length_ != 0;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(List.prototype, "iterator", {
@@ -113,7 +114,7 @@ var List = /** @class */ (function (_super) {
                 }
             };
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(List.prototype, "reverseIterator", {
@@ -139,7 +140,7 @@ var List = /** @class */ (function (_super) {
                 }
             };
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     /**
@@ -266,14 +267,14 @@ var List = /** @class */ (function (_super) {
         get: function () {
             return this.first_;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(List.prototype, "last", {
         get: function () {
             return this.last_;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return List;

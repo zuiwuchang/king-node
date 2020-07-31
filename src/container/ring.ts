@@ -125,6 +125,7 @@ export class Ring<T> extends Container<T> implements IContainer<T> {
             const length = this.length_
             let index: number
             for (let i = 0; i < length; i++) {
+                index = this.start_ + i
                 if (index == capacity) {
                     index -= capacity
                 }
