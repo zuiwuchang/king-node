@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Channel = void 0;
 var rxjs_1 = require("rxjs");
 var completer_1 = require("./completer");
 var operators_1 = require("rxjs/operators");

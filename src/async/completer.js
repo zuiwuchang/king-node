@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WaitPromise = exports.Completer = void 0;
 /**
  * 一個異步完成器
  */
@@ -19,7 +18,7 @@ var Completer = /** @class */ (function () {
         get: function () {
             return this.promise_;
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     /**
@@ -65,7 +64,7 @@ var WaitPromise = /** @class */ (function () {
         get: function () {
             return this.completer_.promise;
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     WaitPromise.prototype._done = function (completer, promises, i) {

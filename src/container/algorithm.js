@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.map = exports.forEach = void 0;
 /**
  * 遍歷迭代器
  * @param iterator
