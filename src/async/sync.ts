@@ -60,3 +60,61 @@ export class WaitGroup {
         this.count_ = 0
     }
 }
+/**
+ * 一個 鎖
+ */
+export class Mutex {
+    private _completer: Completer<void>
+    /**
+     * 加鎖 如果無法競爭到鎖 則等待
+     */
+    async lock(): Promise<void> {
+        while (true) {
+            if (this._completer == null) {
+                this._completer = new Completer<void>()
+                break
+            }
+            await this._completer.promise
+        }
+    }
+    /**
+     * 嘗試加鎖 如果加鎖成功返回true 如果無法競爭到鎖 返回 false
+     */
+    tryLock(): boolean {
+        if (this._completer == null) {
+            this._completer = new Completer<void>()
+            return true
+        }
+        return false
+    }
+    /**
+     * 釋放鎖
+     */
+    unlock() {
+        if (this._completer == null) {
+            throw new UnavailableException('not locked')
+        }
+
+        const completer = this._completer
+        this._completer = null
+        completer.resolve()
+    }
+    /**
+     * 返回 鎖是否被 鎖定
+     */
+    get isLocked(): boolean {
+        if (this._completer) {
+            return true
+        }
+        return false
+    }
+    /**
+     * 返回 鎖是否沒有被 鎖定
+     */
+    get isNotLocked(): boolean {
+        if (this._completer) {
+            return false
+        }
+        return true
+    }
+}
