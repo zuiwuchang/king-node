@@ -2,9 +2,9 @@
   "name": "king-node",
   "version": "1.0.12",
   "description": "some js tools",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "qunit src/index_test.js"
+    "test": "qunit dist/index_test.js"
   },
   "repository": {
     "type": "git",
